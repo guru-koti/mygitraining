@@ -1,0 +1,74 @@
+========================================Git Tutorial===============================================
+apt-get-install git -->on Linux
+install git on windows 
+
+
+working directory -->staging area -->local repository -->remote repository 
+
+mkdir dirname -->crete a directory for your project
+git init --> To create a local repository 
+git status -->To check the status of git (untracked files /commit pending)
+ls -->Check files in current working directory
+git ls-files ---->list of files in local repository
+git add filename ----->adding file to git local repository
+git commit -m "commit message here"  -->commits the changes in local repository
+git logs --> dislpays history  actions wth commited ID
+git commit -a -m -->Afetr alerting a file in git repository we have to commit to modified file like this or you can follow git add /git commit steps also 
+git show --oneline -->Show oneline 7 digit git ID and info
+git show commit ID
+git revert commitID --->undo the chages or any perticular commit
+git diff filename -->show the modified values at unstaged state
+git diff --staged fiename --->shows modifed values at staged state i.e after git add filename
+git rm fiename -->delete a file from both working directory and local repository
+git rm --cached fiename --> Delete only from local repository
+vim .gitignore --> you have to update file name which you want git to ignore (ignore untracked files)
+git reset --hard commit ID --->resets current head to th specified head . becarefull its very distructive command and can't revert back as there willnot be any commit id for this 
+
+Branching (Copy of code and work separatly ) master and branch1 ---you can work on same copy of code separatly
+--------------------------------------------------------
+git branch --->get list of branches
+git checkout -b branch1 master ----->create a branch1 from master
+git checkout master -->comming back to master branch from branch1
+git merge [source branch] [master branch] -----merging both  branches 
+To resolve conflicts we have modify files manually and commit
+git branch -d branch1 --->delete branch from local repository
+
+stash -----changes in your working directory will be moved to some temparary directory and your working directorywill be clean so that you commit changes 
+---------------------------------------------------
+git stach --->moved to some temparary directory and your working directory 
+git stash list ---->shows all stash ids 
+git stash pop stach ID ----dropped the changes /delete stash
+git stash -p ----> stash perticular file
+git stash clear ---> clears all stashsS
+
+Rebase ---rewrite the log history, its like a merge but doesnt add new commit id
+---------------------------------------------------------------------------------
+git rebase master ----->rebase new commit id to banch1 
+git stash drop stashID --->delete perticular stash
+
+
+
+
+working on remote repository
+--------------------------------------------------------------------------
+remote repository could be github.
+
+how push your code to remote repository (github) ?
+git remote add origin "https://github.com/guru-koti/mygitraining.git" 
+git push origin master ---->pushng master branch to remote repository
+git push origin branch1 ---->pushig branch1 to remote repository
+git push origin --delete branch1 ---->delete branch from remote repository
+Note : Before pushing any changes to remote repository .first pull latest remote repository .then resolve conflicts and push .
+
+how to pull code from remore repository to local repository ?
+creat a new directory before cloning remore repository.
+git clone "https://github.com/guru-koti/mygitraining.git"
+cd mygitraining
+ll -al -->show all hidden files 
+git pull origin ---> it will pull all the changes to local repository (fetch + merge)
+git fetch origin --->it just shows chages.
+
+
+
+
+
